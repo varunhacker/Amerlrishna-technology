@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AmerKrishna Technology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-purple: #2D1B69;
+            --secondary-purple: #1A103F;
+            --accent-blue: #3B82F6;
+            --accent-purple: #6D28D9;
+            --accent-pink: #EC4899;
+            --text-white: #FFFFFF;
+            --text-gray: #9CA3AF;
+            --hover-bg: rgba(255, 255, 255, 0.08);
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Typography Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-white);
+            background: var(--secondary-purple);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--text-white), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .container {
+            width: 95%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .about-hero .container {
+            position: relative;
+            z-index: 1;
+            width: 95%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0 2rem;
+        }
+
+        .about-intro .container {
+            max-width: 1200px;
+            padding: 0 2rem;
+            margin: 0 auto;
+        }
+        .about-intro {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+        }
+    
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-white);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+    
+        .expertise-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            background: var(--hover-bg);
+            border-color: var(--accent-blue);
+        }
+    
+        .expertise-item i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+    
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+    
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            background: var(--hover-bg);
+            border-color: var(--accent-pink);
+        }
+    
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+    
+        .cta-button {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-white);
+            background: var(--accent-blue);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+    
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--accent-blue);
+            border-color: transparent;
+        }
+    
+        @media (max-width: 768px) {
+            .expertise-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+    
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <!-- ... existing head section ... -->
+
+<style>
+    .about-hero {
+        padding: 120px 0 60px;
+        background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(109, 40, 217, 0.1));
+        pointer-events: none;
+    }
+
+    .about-hero .container {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .about-hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--text-white), var(--accent-blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-gray);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>
+
+<section class="about-hero">
+    <div class="container">
+        <h1>About AmerKrishna Technology</h1>
+        <p class="hero-subtitle">Empowering Businesses with Cutting-Edge Digital Solutions</p>
+    </div>
+</section>
+
+<section class="about-intro">
+    <div class="container">
+        <p class="intro-text">Welcome to Amerkrishna Technology, a leading digital solutions provider specializing in AI, IT services, software development, website design, and digital marketing. With a passion for innovation and a commitment to excellence, we empower businesses by delivering high-performance, scalable, and future-ready technology solutions.</p>
+    </div>
+</section>
+
+<section class="who-we-are">
+    <div class="container">
+        <h2>Who We Are</h2>
+        <p>Founded with a vision to revolutionize the digital landscape, Amerkrishna Technology has grown into a trusted partner for businesses worldwide. We combine deep industry expertise, advanced technologies, and a client-centric approach to provide tailored solutions that drive real results. Whether you're a startup, enterprise, or government entity, we are dedicated to turning your ideas into reality.</p>
+    </div>
+</section>
+
+<section class="expertise">
+    <div class="container">
+        <h2>Our Expertise</h2>
+        <p class="expertise-intro">At Amerkrishna, we offer a comprehensive range of 50+ IT and digital services, covering:</p>
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <i class="fas fa-robot"></i>
+                <h3>AI & Machine Learning Solutions</h3>
+                <p>Advanced AI chatbots, automation, data analytics, and NLP solutions.</p>
+            </div>
+            <div class="expertise-item">
+                <i class="fas fa-code"></i>
+                <h3>Software Development</h3>
+                <p>Custom web & mobile applications, enterprise solutions, and SaaS platforms.</p>
+            </div>
+            <div class="expertise-item">
+                <i class="fas fa-palette"></i>
+                <h3>Website Design & Development</h3>
+                <p>Responsive, modern, and high-performance websites tailored for your business.</p>
+            </div>
+            <div class="expertise-item">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Digital Marketing & Branding</h3>
+                <p>SEO, PPC, content marketing, and social media strategies that drive growth.</p>
+            </div>
+            <div class="expertise-item">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud Computing & IT Solutions</h3>
+                <p>Scalable cloud infrastructure, DevOps, and IT security services.</p>
+            </div>
+            <div class="expertise-item">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-commerce Solutions</h3>
+                <p>Feature-rich, conversion-optimized online stores for global reach.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mission-vision">
+    <div class="container">
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>Our mission is to bridge the gap between technology and business success by delivering innovative, efficient, and secure digital solutions. We aim to create an ecosystem where businesses can thrive using AI-driven automation, strategic marketing, and intelligent IT solutions.</p>
+        </div>
+    </div>
+</section>
+
+<section class="why-choose-us">
+    <div class="container">
+        <h2>Why Choose Amerkrishna Technology?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <i class="fas fa-users"></i>
+                <h3>Expert Team</h3>
+                <p>A team of highly skilled developers, designers, AI engineers, and marketers.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovation-Driven Approach</h3>
+                <p>We stay ahead of the curve with the latest trends and technologies.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-target"></i>
+                <h3>Client-Centric Focus</h3>
+                <p>Your business goals are our top priority, and we tailor solutions to fit your needs.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-cogs"></i>
+                <h3>End-to-End Solutions</h3>
+                <p>From concept to deployment and maintenance, we handle it all.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Scalability & Performance</h3>
+                <p>Future-proof solutions built for growth and efficiency.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Join Us on the Digital Transformation Journey</h2>
+        <p>At Amerkrishna Technology, we believe in creating impact through technology. Whether you're looking to build a website, automate your processes with AI, or scale your business with digital marketing, we have the expertise to make it happen.</p>
+        <div class="cta-buttons">
+            <a href="#consultation-modal" class="cta-button">Get Started</a>
+            <a href="contact.html" class="cta-button secondary">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- ... existing modal and script sections ... -->
