@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmerKrishna Technology - Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Enhanced Root Variables */
+        :root {
+            --primary-purple: #2D1B69;
+            --secondary-purple: #1A103F;
+            --accent-blue: #3B82F6;
+            --gradient-primary: linear-gradient(135deg, #2D1B69, #3B82F6);
+            --text-white: #FFFFFF;
+            --text-gray: #9CA3AF;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modern Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-purple);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(45, 27, 105, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Update/Add these logo styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img {
+            height: 80px; /* Adjust this value to match your logo's ideal size */
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            padding-top: 80px;
+            min-height: 100vh;
+            background: var(--primary-purple);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 2rem;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+        }
+
+        .hero-content {
+            padding-right: 0;
+            padding-left: 2rem;
+            z-index: 1;
+        }
+
+        .hero-background {
+            position: relative;
+            width: 120%;
+            margin-left: 2%;
+            margin-top: 1rem;
+            margin-bottom: 8rem;
+            z-index: 1;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 700px;
+            transform: translateX(10%) translateY(10%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+            overflow: visible;
+            font-weight: 700;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-blue);
+            display: block;
+            font-size: 2.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .offer-badge {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .subtitle {
+            color: #3da510;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Divider and Banner Styles */
+        .divider {
+            background: var(--accent-blue);
+            padding: 1rem 0;
+            margin-top: -4rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .offer-banner {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-white);
+            font-size: 1.1rem;
+            overflow: hidden;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            animation: bounce 1s infinite;
+            flex-shrink: 0;
+        }
+
+        .scrolling-text {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+
+        .scrolling-text p {
+            margin: 0;
+            padding-right: 50px;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .scrolling-text:hover {
+            animation-play-state: paused;
+        }
+
+        /* Trusted By Section */
+        .trusted-by {
+            padding: 4rem 0;
+            background: var(--secondary-purple);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--accent-blue);
+            margin: 1rem auto 2rem;
+            border-radius: 2px;
+        }
+
+        .trusted-by h2 {
+            text-align: center;
+            color: var(--text-white);
+            font-size: 2.5rem;
+        }
+
+        .trusted-by h3 {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .client-logo {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .client-logo:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .client-logo img {
+            max-width: 150px;
+            height: auto;
+            filter: grayscale(1) brightness(1.5);
+            transition: var(--transition);
+        }
+
+        .client-logo:hover img {
+            filter: grayscale(0) brightness(1);
+        }
+
+        /* Business Plans Section */
+        .business-plans {
+            padding: 4rem 0;
+            background: var(--primary-purple);
+        }
+
+        .business-plans h2 {
+            text-align: center;
+            color: var(--text-white);
+            font-size: 2.5rem;
+        }
+
+        .business-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .business-content h3 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .business-description p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Animations */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1400px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                white-space: normal;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-background {
+                height: 300px;
+            }
+
+            .logo img {
+                height: 40px; /* Slightly smaller on mobile */
+            }
+        }
+
+        /* Add to your existing styles */
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--accent-blue), #60a5fa);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .explore-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .explore-button:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Update responsive styles */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button, .explore-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+
+        /* Add these animation styles to your existing CSS */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        .cube {
+            position: absolute;
+            border-radius: 15px;
+            animation: float 20s infinite;
+            opacity: 0.7;
+            backdrop-filter: blur(5px);
+        }
+
+        .cube:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 5%;
+            left: 5%;
+            animation-delay: 0s;
+            background: linear-gradient(45deg, #4F46E5, #2563EB);
+            box-shadow: 0 0 30px rgba(79, 70, 229, 0.4);
+        }
+
+        .cube:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 30%;
+            right: 10%;
+            animation-delay: -2s;
+            background: linear-gradient(45deg, #3B82F6, #60A5FA);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .cube:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            bottom: 10%;
+            left: 15%;
+            animation-delay: -4s;
+            background: linear-gradient(45deg, #6366F1, #818CF8);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .cube:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            top: 15%;
+            right: 25%;
+            animation-delay: -6s;
+            background: linear-gradient(45deg, #2563EB, #3B82F6);
+            box-shadow: 0 0 35px rgba(37, 99, 235, 0.4);
+        }
+
+        .cube:nth-child(5) {
+            width: 350px;
+            height: 350px;
+            bottom: 20%;
+            right: 5%;
+            animation-delay: -8s;
+            background: linear-gradient(45deg, #1D4ED8, #3B82F6);
+            box-shadow: 0 0 40px rgba(29, 78, 216, 0.4);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translateY(-40px) rotate(90deg) scale(1.2);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(0) rotate(180deg) scale(1);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translateY(40px) rotate(270deg) scale(0.9);
+                opacity: 0.9;
+            }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(45, 27, 105, 0.5) 0%,
+                rgba(45, 27, 105, 0.3) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-background {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Services Showcase Styles */
+        .services-showcase {
+            padding: 6rem 0;
+            background: var(--secondary-purple);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-blue), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Add this after the services-grid div in the Services Showcase Section */
+        .services-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--accent-blue), #60a5fa);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .learn-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .learn-more-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .learn-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Statistics Section */
+        .statistics {
+            padding: 4rem 0;
+            background: var(--primary-purple);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .stat-item p {
+            color: var(--text-white);
+            font-size: 1.1rem;
+        }
+
+        /* Latest Projects Section */
+        .latest-projects {
+            padding: 6rem 0;
+            background: var(--secondary-purple);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(59, 130, 246, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .view-project {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 25px;
+            transition: var(--transition);
+        }
+
+        .view-project:hover {
+            background: white;
+            color: var(--accent-blue);
+        }
+
+        .project-card h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            color: var(--text-white);
+        }
+
+        .project-card p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-gray);
+        }
+
+        /* Team Expertise Section */
+        .team-expertise {
+            padding: 6rem 0;
+            background: var(--primary-purple);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .expertise-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .expertise-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            color: var(--text-white);
+            margin-bottom: 1rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .expertise-list li {
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .expertise-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Team Members Section */
+        .team-members {
+            margin-top: 4rem;
+        }
+
+        .team-members h3 {
+            text-align: center;
+            color: var(--text-white);
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .member-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            margin: 2rem auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-blue);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-card h4 {
+            color: var(--text-white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            color: var(--text-gray);
+            padding: 0 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .member-social a {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .member-social a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Client Success Stories Section */
+        .client-success {
+            padding: 6rem 0;
+            background: var(--secondary-purple);
+        }
+
+        .client-success h2 {
+            text-align: center;
+            color: var(--text-white);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--accent-blue);
+            margin: 1rem auto 2rem;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* AI Industry Selector */
+        .industry-selector {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .industry-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: 30px;
+            color: var(--text-white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .industry-btn.active, .industry-btn:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Case Studies Grid */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .case-metrics {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .metric-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Live Metrics */
+        .live-metrics {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-bars {
+            margin-top: 1rem;
+        }
+
+        .metric-bar {
+            margin-bottom: 1rem;
+        }
+
+        .bar-fill {
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 3px;
+            position: relative;
+            animation: fillBar 2s ease-out forwards;
+        }
+
+        .metric-bar span {
+            display: block;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* AI Testimonial */
+        .ai-testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .testimonial-video {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        .testimonial-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ai-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.9);
+            border-radius: 20px;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .testimonial-content {
+            padding: 2rem;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .client-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        /* Analytics Dashboard */
+        .analytics-dashboard {
+            margin-top: 4rem;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .analytics-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .analytics-icon {
+            font-size: 2rem;
+            color: var(--accent-blue);
+        }
+
+        .data-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .data-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--width); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Intelligent Support Section */
+        .intelligent-support {
+            padding: 6rem 0;
+            background: var(--primary-purple);
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .support-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .support-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .support-card h3 {
+            color: var(--text-white);
+            margin-bottom: 1rem;
+        }
+
+        .support-card p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        /* Chatbot Styles */
+        .chat-preview {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .chat-messages {
+            margin-bottom: 1.5rem;
+        }
+
+        .message {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message i {
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+        }
+
+        .message p {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 15px;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .message.user p {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        /* Proposal Generator Styles */
+        .proposal-form {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-white);
+        }
+
+        /* Booking System Styles */
+        .booking-system {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .time-slots {
+            display: grid;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-white);
+        }
+
+        .slot.available {
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .slot.busy {
+            opacity: 0.5;
+        }
+
+        .slot i {
+            font-size: 1.2rem;
+        }
+
+        .slot.available i {
+            color: #10B981;
+        }
+
+        .slot.busy i {
+            color: #EF4444;
+        }
+
+        /* Button Styles */
+        .start-chat,
+        .generate-proposal,
+        .book-meeting {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-blue);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .start-chat:hover,
+        .generate-proposal:hover,
+        .book-meeting:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* About Section Styles */
+        .about-section {
+            background: var(--secondary-purple);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 3rem;
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .profile-image-container:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-badge {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .badge-logo {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+
+        .about-content {
+            color: var(--text-white);
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #fff, var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-subtitle {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-description {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .core-expertise {
+            margin-bottom: 2rem;
+        }
+
+        .core-expertise h4 {
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .expertise-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-white);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-tag:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .running-text-container {
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .running-text-container marquee {
+            color: var(--text-white);
+            padding: 1rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .profile-wrapper {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .expertise-tags {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-image-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .profile-content {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Add/Update these social icon styles */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .social-logo {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        /* Platform-specific styles */
+        .social-icon.whatsapp::before {
+            background: #25D366;
+        }
+
+        .social-icon.facebook::before {
+            background: #1877F2;
+        }
+
+        .social-icon.instagram::before {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social-icon.linkedin::before {
+            background: #0A66C2;
+        }
+
+        /* Hover effects */
+        .social-icon:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .social-icon:hover::before {
+            opacity: 1;
+        }
+
+        .social-icon:hover .social-logo {
+            transform: scale(1.2);
+            filter: brightness(0) invert(1);
+        }
+
+        /* Add animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .social-icon:hover {
+            animation: pulse 1s infinite;
+        }
+
+        /* Add these styles for the services CTA button */
+        .services-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--accent-blue), #60a5fa);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .learn-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .learn-more-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .learn-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Responsive adjustment */
+        @media (max-width: 768px) {
+            .learn-more-btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Add these styles for the project status link */
+        .nav-link.project-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link.project-status i {
+            font-size: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .status-badge {
+            background: #10B981;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        .nav-link.project-status:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-link.project-status {
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .status-badge {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="image/Screenshot 2025-02-22 224711.png" alt="AmerKrishna Logo">
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="comprehensive-status.html" class="nav-link">Services</a>
+                <a href="about-us.html" class="nav-link">About</a>
+                <a href="live-status.html" class="nav-link project-status">
+                    <i class="fas fa-chart-line"></i>
+                    Project Status
+                    <span class="status-badge">LIVE</span>
+                </a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="animated-background">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left Content -->
+                <div class="hero-content">
+                    <h1>
+                        AmerKrishna Technology
+                        <span class="highlight">Empowering Businesses with Innovation</span>
+                    </h1>
+                    <div class="offer-badge">
+                        <span>Offer Ends Soon!</span>
+                        <span class="highlight">Hurry up!</span>
+                    </div>
+                    <p class="subtitle">Amerkrishna Technology - 105+ IT & Business Solutions</p>
+                    <p class="description">Amplify your brand's impact with AmerKrishna's forward-thinking digital strategies for measurable growth</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="cta-button">Check Our Services</a>
+                        <a href="#portfolio" class="explore-button">Explore More</a>
+                    </div>
+                </div>
+                
+                <!-- Right Image -->
+                <div class="hero-background">
+                    <img src="image/pic-6.png" alt="Digital Banner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add after the hero section -->
+
+    <!-- Divider Section -->
+    <div class="divider">
+        <div class="container">
+            <div class="offer-banner">
+                <div class="scrolling-text">
+                    <p>Mahashivratri Festive Offer on Amerkrishna Digital Services! Get Up to 25% Off on IT & Digital Services!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <h2>Trusted By</h2>
+            <div class="section-divider"></div>
+            <h3>EMPOWERING BUSINESSES ACROSS DIVERSE SECTORS</h3>
+            <div class="client-grid">
+                <div class="client-logo">
+                    <img src="image/client1.png" alt="Client Logo">
+                </div>
+                <div class="client-logo">
+                    <img src="image/client2.png" alt="Client Logo">
+                </div>
+                <div class="client-logo">
+                    <img src="image/client3.png" alt="Client Logo">
+                </div>
+                <div class="client-logo">
+                    <img src="image/client4.png" alt="Client Logo">
+                </div>
+                <div class="client-logo">
+                    <img src="image/client5.png" alt="Client Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Plans Section -->
+    <section class="business-plans">
+        <div class="container">
+            <h2>BUSINESS PLANS</h2>
+            <div class="section-divider"></div>
+            <div class="business-content">
+                <h3>Amerkrishna</h3>
+                <div class="business-description">
+                    <p>Amerkrishna Technology aims to be a global leader in digital transformation by providing software development, IT services, website design, AI solutions, and cybersecurity.</p>
+                    <p>Our business model includes project-based pricing, subscription services, and IT consulting, catering to startups, SMEs, and enterprises.</p>
+                    <p>With a focus on innovation, market expansion, and strategic partnerships, we strive for consistent growth and service excellence. Our goal is to invest in emerging technologies and build long-term client relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container profile-container">
+            <div class="profile-wrapper">
+                <div class="profile-image-container">
+                    <img src="image/CEO.jpg" alt="Mukesh Kumar" class="profile-image">
+                </div>
+                <div class="profile-content">
+                    <h2 class="section-title">About</h2>
+                    <div class="about-layout">
+                        <div class="about-content">
+                            <h3 class="about-title">Mukesh Kumar</h3>
+                            <p class="about-subtitle">Founder & CEO, Amerkrishna Technology</p>
+                            
+                            <div class="about-description">
+                                <p>As the CEO of Amerkrishna Technology, Mukesh Kumar leads the company with a vision for delivering cutting-edge digital services. With a strong background in software development, IT solutions, and business leadership, Mukesh drives the company's mission to provide innovative solutions across various industries. His strategic approach, combined with a deep understanding of technology trends, ensures Amerkrishna stays at the forefront of digital transformation, empowering businesses to thrive in an ever-evolving market.</p>
+                            </div>
+
+                            <div class="core-expertise">
+                                <h4>Core Expertise</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">Leadership & Strategic Vision</span>
+                                    <span class="expertise-tag">Software Development & IT Solutions</span>
+                                    <span class="expertise-tag">Digital Transformation</span>
+                                    <span class="expertise-tag">Innovation Management</span>
+                                    <span class="expertise-tag">Client Relationship Management</span>
+                                    <span class="expertise-tag">Custom Website development</span>
+                                    <span class="expertise-tag">GST & VAT Software Solutions & Tax Compliance & E-Filing</span>
+                                </div>
+                            </div>
+
+                            <div class="connect-section">
+                                <h4 class="section-subtitle">Connect with Me</h4>
+                                <div class="social-links">
+                                    <a href="https://wa.me/9149858527" target="_blank" class="social-icon whatsapp" title="WhatsApp">
+                                        <img src="image/whatsapp.png" alt="WhatsApp" class="social-logo">
+                                    </a>
+                                    <a href="#" target="_blank" class="social-icon facebook" title="Facebook">
+                                        <img src="image/facebook.png" alt="Facebook" class="social-logo">
+                                    </a>
+                                    <a href="#" target="_blank" class="social-icon instagram" title="Instagram">
+                                        <img src="image/instagram.png" alt="Instagram" class="social-logo">
+                                    </a>
+                                    <a href="#" target="_blank" class="social-icon linkedin" title="LinkedIn">
+                                        <img src="image/linkedin.png" alt="LinkedIn" class="social-logo">
+                                    </a>
+                                    <a href="#" target="_blank" class="social-icon twitter" title="Twitter">
+                                        <img src="image/twitter.png" alt="Twitter" class="social-logo">
+                                    </a>
+                                </div>
+                            </div>
+                            <h2 class="section-subtitle">Founder Message </h2> 
+                            <div class="running-text-container">
+                                <marquee behavior="scroll" direction="left" scrollamount="10">
+                                    Innovator | Digital Transformer | AI Strategist | Cloud Solutions Expert | Technology Visionary
+                                </marquee>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Showcase Section -->
+    <section class="services-showcase">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="section-divider"></div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications with modern technologies and responsive design.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android platforms.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Solutions</h3>
+                    <p>Intelligent automation and machine learning solutions for business optimization.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="services-cta">
+                <a href="#" class="learn-more-btn">
+                    <span>Learn More About Our Services</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="200">0</div>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <p>Expert Team Members</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="95">0</div>
+                    <p>Client Satisfaction %</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Projects Section -->
+    <section class="latest-projects">
+        <div class="container">
+            <h2>Latest Projects</h2>
+            <div class="section-divider"></div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="image/project1.jpg" alt="Project 1">
+                        <div class="project-overlay">
+                            <a href="#" class="view-project">View Project</a>
+                        </div>
+                    </div>
+                    <h3>E-Commerce Platform</h3>
+                    <p>Web Development</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="image/project2.jpg" alt="Project 2">
+                        <div class="project-overlay">
+                            <a href="#" class="view-project">View Project</a>
+                        </div>
+                    </div>
+                    <h3>Healthcare App</h3>
+                    <p>Mobile Development</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="image/project3.jpg" alt="Project 3">
+                        <div class="project-overlay">
+                            <a href="#" class="view-project">View Project</a>
+                        </div>
+                    </div>
+                    <h3>AI Chatbot</h3>
+                    <p>Artificial Intelligence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Expertise Section -->
+    <section class="team-expertise">
+        <div class="container">
+            <h2>Team Expertise</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Meet Our Expert Team of Digital Innovators</p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI & Machine Learning</h3>
+                    <ul class="expertise-list">
+                        <li>Deep Learning Models</li>
+                        <li>Natural Language Processing</li>
+                        <li>Computer Vision</li>
+                        <li>Predictive Analytics</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <ul class="expertise-list">
+                        <li>AWS Architecture</li>
+                        <li>Azure Integration</li>
+                        <li>Cloud Security</li>
+                        <li>Scalable Infrastructure</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Development</h3>
+                    <ul class="expertise-list">
+                        <li>iOS Development</li>
+                        <li>Android Development</li>
+                        <li>Cross-platform Apps</li>
+                        <li>Mobile UI/UX</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Team Members -->
+            <div class="team-members">
+                <h3>Key Team Members</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="image/team1.jpg" alt="Team Member">
+                        </div>
+                        <h4>John Smith</h4>
+                        <p class="member-role">AI Research Lead</p>
+                        <p class="member-bio">10+ years experience in AI and Machine Learning. PhD in Computer Science from MIT.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="image/team2.jpg" alt="Team Member">
+                        </div>
+                        <h4>Sarah Johnson</h4>
+                        <p class="member-role">Cloud Architecture Head</p>
+                        <p class="member-bio">AWS Certified Solutions Architect with 8+ years in cloud infrastructure.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="image/team3.jpg" alt="Team Member">
+                        </div>
+                        <h4>Mike Chen</h4>
+                        <p class="member-role">Mobile Development Lead</p>
+                        <p class="member-bio">Expert in iOS and Android development with 100+ successful app launches.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Success Stories Section -->
+    <section class="client-success">
+        <div class="container">
+            <h2>Success Stories</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">AI-Powered Client Success Stories & Real-Time Analytics</p>
+
+            <!-- AI Industry Selector -->
+            <div class="industry-selector">
+                <button class="industry-btn active" data-industry="tech">Technology</button>
+                <button class="industry-btn" data-industry="healthcare">Healthcare</button>
+                <button class="industry-btn" data-industry="finance">Finance</button>
+                <button class="industry-btn" data-industry="retail">Retail</button>
+            </div>
+
+            <!-- Case Studies Grid -->
+            <div class="case-studies-grid">
+                <div class="case-study-card" data-industry="tech">
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-number">300%</span>
+                            <span class="metric-label">ROI Increase</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-number">85%</span>
+                            <span class="metric-label">Automation Rate</span>
+                        </div>
+                    </div>
+                    <h3>AI-Driven Process Automation</h3>
+                    <p>Implemented machine learning algorithms to automate customer service operations for a leading tech company.</p>
+                    <div class="live-metrics">
+                        <h4>Live Performance Metrics</h4>
+                        <div class="metric-bars">
+                            <div class="metric-bar">
+                                <div class="bar-fill" style="width: 92%"></div>
+                                <span>Customer Satisfaction</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="bar-fill" style="width: 88%"></div>
+                                <span>Response Time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Testimonial Section -->
+                <div class="ai-testimonial">
+                    <div class="testimonial-video">
+                        <video autoplay loop muted>
+                            <source src="video/ai-testimonial.mp4" type="video/mp4">
+                        </video>
+                        <div class="ai-badge">AI-Enhanced</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"AmerKrishna's AI solutions transformed our business operations, resulting in unprecedented growth and efficiency."</p>
+                        <div class="client-info">
+                            <img src="image/client-avatar.jpg" alt="Client">
+                            <div>
+                                <h4>David Chen</h4>
+                                <p>CTO, TechCorp Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Analytics Dashboard -->
+            <div class="analytics-dashboard">
+                <h3>Live Impact Analytics</h3>
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <div class="analytics-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="analytics-data">
+                            <span class="data-number" data-value="1250">0</span>
+                            <span class="data-label">Active AI Models</span>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <div class="analytics-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="analytics-data">
+                            <span class="data-number" data-value="5000000">0</span>
+                            <span class="data-label">AI Predictions/Day</span>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <div class="analytics-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="analytics-data">
+                            <span class="data-number" data-value="99.9">0</span>
+                            <span class="data-label">Uptime Percentage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intelligent Support Section -->
+    <section class="intelligent-support">
+        <div class="container">
+            <h2>Intelligent Support System</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">AI-Powered Support & Engagement Solutions</p>
+
+            <div class="support-grid">
+                <!-- BharatAI Chatbot -->
+                <div class="support-card chatbot-card">
+                    <div class="support-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>BharatAI Assistant</h3>
+                    <p>24/7 Intelligent Support with Voice Recognition</p>
+                    <div class="chat-preview">
+                        <div class="chat-messages">
+                            <div class="message bot">
+                                <i class="fas fa-robot"></i>
+                                <p>Hello! How can I assist you today?</p>
+                            </div>
+                            <div class="message user">
+                                <p>I need help with web development</p>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="message bot">
+                                <i class="fas fa-robot"></i>
+                                <p>I'll help you explore our web development services!</p>
+                            </div>
+                        </div>
+                        <button class="start-chat">
+                            <i class="fas fa-comments"></i>
+                            Start Chat
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Proposal Generator -->
+                <div class="support-card proposal-card">
+                    <div class="support-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Instant Proposal Generator</h3>
+                    <p>Get AI-Generated Custom Proposals</p>
+                    <div class="proposal-form">
+                        <div class="form-group">
+                            <select id="service-type">
+                                <option value="">Select Service Type</option>
+                                <option value="web">Web Development</option>
+                                <option value="mobile">Mobile App Development</option>
+                                <option value="ai">AI Solutions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Project Budget (Optional)">
+                        </div>
+                        <button class="generate-proposal">
+                            <i class="fas fa-magic"></i>
+                            Generate Proposal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Smart Booking System -->
+                <div class="support-card booking-card">
+                    <div class="support-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Smart Scheduling</h3>
+                    <p>AI-Powered Meeting Scheduler</p>
+                    <div class="booking-system">
+                        <div class="availability-preview">
+                            <div class="time-slots">
+                                <div class="slot available">
+                                    <span>10:00 AM</span>
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="slot busy">
+                                    <span>11:00 AM</span>
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                                <div class="slot available">
+                                    <span>2:00 PM</span>
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="book-meeting">
+                            <i class="fas fa-video"></i>
+                            Schedule Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+// Chatbot Functionality
+document.querySelector('.start-chat').addEventListener('click', function() {
+    const chatPreview = document.querySelector('.chat-preview');
+    const messages = document.querySelector('.chat-messages');
+    
+    // Add user input field
+    const inputContainer = document.createElement('div');
+    inputContainer.className = 'chat-input';
+    inputContainer.innerHTML = `
+        <input type="text" placeholder="Type your message...">
+        <button><i class="fas fa-paper-plane"></i></button>
+    `;
+    chatPreview.appendChild(inputContainer);
+    
+    // Handle user input
+    const input = inputContainer.querySelector('input');
+    const sendBtn = inputContainer.querySelector('button');
+    
+    function sendMessage() {
+        if (input.value.trim()) {
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.innerHTML = `
+                <p>${input.value}</p>
+                <i class="fas fa-user"></i>
+            `;
+            messages.appendChild(userMsg);
+            
+            // Simulate bot response
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message bot';
+                botMsg.innerHTML = `
+                    <i class="fas fa-robot"></i>
+                    <p>Thank you for your message. A team member will assist you shortly.</p>
+                `;
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 1000);
+            
+            input.value = '';
+        }
+    }
+    
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+});
+
+// Proposal Generator Functionality
+document.querySelector('.generate-proposal').addEventListener('click', function() {
+    const serviceType = document.getElementById('service-type').value;
+    const budget = document.querySelector('.proposal-form input').value;
+    
+    if (!serviceType) {
+        alert('Please select a service type');
+        return;
+    }
+    
+    // Show loading state
+    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+    
+    // Simulate proposal generation
+    setTimeout(() => {
+        this.innerHTML = '<i class="fas fa-magic"></i> Generate Proposal';
+        
+        // Create proposal preview
+        const proposalPreview = document.createElement('div');
+        proposalPreview.className = 'proposal-preview';
+        proposalPreview.innerHTML = `
+            <h4>Custom Proposal for ${serviceType}</h4>
+            <p>Estimated Budget: ${budget || 'To be discussed'}</p>
+            <p>Delivery Timeline: 4-6 weeks</p>
+            <a href="#" class="download-proposal">Download Full Proposal</a>
+        `;
+        
+        const form = document.querySelector('.proposal-form');
+        form.appendChild(proposalPreview);
+    }, 2000);
+});
+
+// Smart Booking System Functionality
+document.querySelectorAll('.slot').forEach(slot => {
+    if (!slot.classList.contains('busy')) {
+        slot.addEventListener('click', function() {
+            document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    }
+});
+
+document.querySelector('.book-meeting').addEventListener('click', function() {
+    const selectedSlot = document.querySelector('.slot.selected');
+    
+    if (!selectedSlot) {
+        alert('Please select a time slot');
+        return;
+    }
+    
+    // Show booking form
+    const bookingForm = document.createElement('div');
+    bookingForm.className = 'booking-form';
+    bookingForm.innerHTML = `
+        <h4>Schedule Your Consultation</h4>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="tel" placeholder="Your Phone">
+        <textarea placeholder="Meeting Agenda (Optional)"></textarea>
+        <button class="confirm-booking">Confirm Booking</button>
+    `;
+    
+    const bookingSystem = document.querySelector('.booking-system');
+    bookingSystem.appendChild(bookingForm);
+    
+    // Handle booking confirmation
+    bookingForm.querySelector('.confirm-booking').addEventListener('click', function() {
+        const name = bookingForm.querySelector('input[type="text"]').value;
+        const email = bookingForm.querySelector('input[type="email"]').value;
+        
+        if (!name || !email) {
+            alert('Please fill in required fields');
+            return;
+        }
+        
+        // Show success message
+        bookingSystem.innerHTML = `
+            <div class="booking-success">
+                <i class="fas fa-check-circle"></i>
+                <h4>Booking Confirmed!</h4>
+                <p>Your consultation is scheduled for ${selectedSlot.querySelector('span').textContent}</p>
+                <p>A confirmation email has been sent to ${email}</p>
+            </div>
+        `;
+    });
+});
+
