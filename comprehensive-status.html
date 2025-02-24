@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmerKrishna Technology - Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-purple: #2D1B69;
+            --secondary-purple: #1A103F;
+            --accent-blue: #3B82F6;
+            --text-white: #FFFFFF;
+            --text-gray: #9CA3AF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-purple);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        /* Banner Styles */
+        .banner {
+            position: relative;
+            min-height: 450px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+            overflow: hidden;
+            padding: 3rem 0;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('image/banner-bg.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .banner-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent-blue), #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .banner-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .banner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .banner-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .banner-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2.5rem;
+            }
+
+            .banner-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .banner-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add to your existing styles */
+        .services-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--secondary-purple), var(--primary-purple));
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-blue), #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(59, 130, 246, 0.1),
+                rgba(255, 255, 255, 0.05)
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background: var(--accent-blue);
+        }
+
+        .service-icon i {
+            font-size: 1.25rem;
+            color: var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-white);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .service-features {
+            margin: 1rem 0;
+            padding-left: 0.5rem;
+        }
+
+        .service-features li {
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .service-features li i {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .service-link {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .service-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .service-card:hover .service-link::after {
+            width: 100%;
+        }
+
+        @media (max-width: 1536px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .banner-content {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .banner-title {
+                font-size: 2.5rem;
+            }
+
+            .banner-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .services-section {
+                padding: 3rem 0;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+
+            .banner-title {
+                font-size: 2rem;
+            }
+
+            .banner-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .banner-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 1.25rem;
+            }
+
+            .banner-cta {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .banner-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+        /* ... existing styles ... */
+
+        /* Footer Styles */
+        .cta-footer {
+            background: linear-gradient(135deg, var(--secondary-purple), var(--primary-purple));
+            padding: 4rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-main h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-blue), #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-main p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: var(--text-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-blue);
+        }
+
+        .trust-statement {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .trust-statement p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .consultation-offer {
+            margin-top: 3rem;
+        }
+
+        .consultation-offer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .consultation-offer p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .cta-main h2 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .trust-statement {
+                padding: 1.5rem;
+            }
+        }
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .service-card:hover {
+                transform: none;
+            }
+
+            .service-link {
+                padding: 0.75rem 0;
+            }
+
+            .banner-cta:active,
+            .service-card:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* Add to your existing styles */
+        .ai-section {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+        }
+
+        .ai-section .service-card {
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .ai-section .service-icon {
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        .ai-section .service-card:hover {
+            border-color: #60A5FA;
+            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.2);
+        }
+
+        .ai-section .service-card:hover .service-icon {
+            background: #60A5FA;
+        }
+
+        /* Add to your existing styles */
+        .web-section {
+            background: linear-gradient(135deg, #1E293B, #0F172A);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .web-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('path/to/pattern.svg') center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .web-section .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .web-section .service-icon {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .web-section .service-card:hover {
+            border-color: #6366F1;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .web-section .service-card:hover .service-icon {
+            background: #6366F1;
+        }
+
+        .web-section .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .web-section .service-link {
+            color: #6366F1;
+        }
+
+        .web-section .service-features li i {
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366F1;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--primary-purple);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--text-white);
+        }
+
+        .modal-content h2 {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+        /* Add to your existing styles */
+        .marketing-section {
+            background: linear-gradient(135deg, #1A237E, #311B92);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .marketing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('path/to/marketing-pattern.svg') center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .marketing-section .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .marketing-section .service-icon {
+            background: rgba(103, 58, 183, 0.1);
+        }
+
+        .marketing-section .service-icon i {
+            color: #673AB7;
+        }
+
+        .marketing-section .service-card:hover {
+            border-color: #673AB7;
+            box-shadow: 0 20px 40px rgba(103, 58, 183, 0.2);
+        }
+
+        .marketing-section .service-card:hover .service-icon {
+            background: #673AB7;
+        }
+
+        .marketing-section .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .marketing-section .service-link {
+            color: #673AB7;
+        }
+
+        .marketing-section .service-features li i {
+            background: rgba(103, 58, 183, 0.1);
+            color: #673AB7;
+        }
+
+        /* Enhanced hover effects for marketing cards */
+        .marketing-section .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(103, 58, 183, 0.1),
+                rgba(255, 255, 255, 0.05)
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .marketing-section .service-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Add this to your existing styles section */
+        .highlight-text {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 0.8em;
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .highlight-text {
+                font-size: 0.7em;
+            }
+        }
+
+        /* Add to your existing styles */
+        .cloud-section {
+            background: linear-gradient(135deg, #0F2027, #203A43);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cloud-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('path/to/cloud-pattern.svg') center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .cloud-section .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .cloud-section .service-icon {
+            background: rgba(72, 187, 255, 0.1);
+        }
+
+        .cloud-section .service-icon i {
+            color: #48BBFF;
+        }
+
+        .cloud-section .service-card:hover {
+            border-color: #48BBFF;
+            box-shadow: 0 20px 40px rgba(72, 187, 255, 0.2);
+        }
+
+        .cloud-section .service-card:hover .service-icon {
+            background: #48BBFF;
+        }
+
+        .cloud-section .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .cloud-section .service-link {
+            color: #48BBFF;
+        }
+
+        .cloud-section .service-features li i {
+            background: rgba(72, 187, 255, 0.1);
+            color: #48BBFF;
+        }
+
+        /* Add to your existing styles */
+        .ecommerce-section {
+            background: linear-gradient(135deg, #2E1437, #451952);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ecommerce-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('path/to/ecommerce-pattern.svg') center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .ecommerce-section .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .ecommerce-section .service-icon {
+            background: rgba(236, 72, 153, 0.1);
+        }
+
+        .ecommerce-section .service-icon i {
+            color: #EC4899;
+        }
+
+        .ecommerce-section .service-card:hover {
+            border-color: #EC4899;
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2);
+        }
+
+        .ecommerce-section .service-card:hover .service-icon {
+            background: #EC4899;
+        }
+
+        .ecommerce-section .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .ecommerce-section .service-link {
+            color: #EC4899;
+        }
+
+        .ecommerce-section .service-features li i {
+            background: rgba(236, 72, 153, 0.1);
+            color: #EC4899;
+        }
+
+        /* Add to your existing styles */
+        .security-section {
+            background: linear-gradient(135deg, #1A1F3C, #2C1F54);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('path/to/security-pattern.svg') center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .security-section .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .security-section .service-icon {
+            background: rgba(248, 113, 113, 0.1);
+        }
+
+        .security-section .service-icon i {
+            color: #F87171;
+        }
+
+        .security-section .service-card:hover {
+            border-color: #F87171;
+            box-shadow: 0 20px 40px rgba(248, 113, 113, 0.2);
+        }
+
+        .security-section .service-card:hover .service-icon {
+            background: #F87171;
+        }
+
+        .security-section .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .security-section .service-link {
+            color: #F87171;
+        }
+
+        .security-section .service-features li i {
+            background: rgba(248, 113, 113, 0.1);
+            color: #F87171;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title">Transforming Ideas into Digital Reality<br><span class="highlight-text">Amerkrishna Technology - 105+ IT & Business Solutions</span></h1>
+            <p class="banner-subtitle">Innovative technology solutions for modern businesses. We help companies navigate their digital transformation journey with cutting-edge solutions.</p>
+            <a href="#contact" class="banner-cta">
+                <i class="fas fa-rocket"></i>
+                Start Your Project
+            </a>
+            <div class="banner-stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Expert Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this after the banner section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Software Development & IT Solutions</h2>
+                <p class="section-subtitle">Comprehensive technology solutions tailored to your business needs</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Custom Software Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Custom Software Development</h3>
+                    <p>Tailored software solutions designed to meet your specific business requirements.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Scalable Architecture</li>
+                        <li><i class="fas fa-check"></i> Custom Features</li>
+                        <li><i class="fas fa-check"></i> Integration Support</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Web Application Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Web Application Development</h3>
+                    <p>Modern web applications with responsive design and powerful functionality.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Cross-browser Support</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Mobile App Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Native and cross-platform mobile applications for Android and iOS.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Native Development</li>
+                        <li><i class="fas fa-check"></i> Cross-platform Solutions</li>
+                        <li><i class="fas fa-check"></i> App Store Optimization</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. Enterprise Software Solutions -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Enterprise Software Solutions</h3>
+                    <p>Comprehensive enterprise-level software solutions for large organizations.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Enterprise Integration</li>
+                        <li><i class="fas fa-check"></i> Workflow Automation</li>
+                        <li><i class="fas fa-check"></i> Security Compliance</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 5. ERP & CRM Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>ERP & CRM Development</h3>
+                    <p>Custom ERP and CRM solutions for business process management.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Business Process Integration</li>
+                        <li><i class="fas fa-check"></i> Customer Management</li>
+                        <li><i class="fas fa-check"></i> Analytics Dashboard</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Continue with remaining services... -->
+
+                <!-- 20. Identity & Access Management -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Identity & Access Management</h3>
+                    <p>Secure authentication and authorization solutions for enterprise security.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Multi-factor Authentication</li>
+                        <li><i class="fas fa-check"></i> Role-based Access Control</li>
+                        <li><i class="fas fa-check"></i> Single Sign-On</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & Machine Learning Solutions Section -->
+    <section class="services-section ai-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI & Machine Learning Solutions</h2>
+                <p class="section-subtitle">Cutting-edge artificial intelligence and machine learning solutions to transform your business</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. AI-Powered Chatbots -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Chatbots</h3>
+                    <p>Intelligent conversational agents for enhanced customer engagement.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Natural Language Processing</li>
+                        <li><i class="fas fa-check"></i> 24/7 Customer Support</li>
+                        <li><i class="fas fa-check"></i> Multi-language Support</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Predictive Analytics -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Data-driven insights for informed business decisions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Advanced Data Analysis</li>
+                        <li><i class="fas fa-check"></i> Trend Forecasting</li>
+                        <li><i class="fas fa-check"></i> Real-time Insights</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Speech Recognition -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Speech Recognition</h3>
+                    <p>Advanced voice recognition and processing solutions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Voice Commands</li>
+                        <li><i class="fas fa-check"></i> Speech-to-Text</li>
+                        <li><i class="fas fa-check"></i> Voice Authentication</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. Sentiment Analysis -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Sentiment Analysis</h3>
+                    <p>Monitor and analyze customer sentiment and brand perception.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Social Media Monitoring</li>
+                        <li><i class="fas fa-check"></i> Brand Reputation</li>
+                        <li><i class="fas fa-check"></i> Customer Feedback Analysis</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Continue with remaining AI services... -->
+
+                <!-- 20. Automated Resume Screening -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-search"></i>
+                    </div>
+                    <h3>AI Resume Screening</h3>
+                    <p>Automated candidate screening and recruitment optimization.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Smart Candidate Matching</li>
+                        <li><i class="fas fa-check"></i> Skills Assessment</li>
+                        <li><i class="fas fa-check"></i> Bias Reduction</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Design & Development Section -->
+    <section class="services-section web-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Website Design & Development</h2>
+                <p class="section-subtitle">Professional web solutions that combine stunning design with powerful functionality</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Custom Website Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Custom Website Design</h3>
+                    <p>Unique and engaging website designs tailored to your brand identity.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Brand-Aligned Design</li>
+                        <li><i class="fas fa-check"></i> Custom Graphics</li>
+                        <li><i class="fas fa-check"></i> Modern Aesthetics</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. UI/UX Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>UI/UX Design Services</h3>
+                    <p>User-centered design solutions for optimal user experience.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> User Research</li>
+                        <li><i class="fas fa-check"></i> Interface Design</li>
+                        <li><i class="fas fa-check"></i> Usability Testing</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Responsive Web Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Web Design</h3>
+                    <p>Mobile-friendly websites that adapt to all screen sizes.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Mobile Optimization</li>
+                        <li><i class="fas fa-check"></i> Cross-device Testing</li>
+                        <li><i class="fas fa-check"></i> Fluid Layouts</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. E-commerce Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Development</h3>
+                    <p>Full-featured online stores with secure payment integration.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Payment Gateway Integration</li>
+                        <li><i class="fas fa-check"></i> Inventory Management</li>
+                        <li><i class="fas fa-check"></i> Shopping Cart System</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Add remaining services... -->
+
+                <!-- 15. Custom CMS Development -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Custom CMS Development</h3>
+                    <p>Tailored content management systems for your specific needs.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Workflows</li>
+                        <li><i class="fas fa-check"></i> User Role Management</li>
+                        <li><i class="fas fa-check"></i> Content Versioning</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing Services Section -->
+    <section class="services-section marketing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Digital Marketing Services</h2>
+                <p class="section-subtitle">Strategic digital marketing solutions to grow your online presence and drive results</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Search Engine Optimization -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Search Engine Optimization</h3>
+                    <p>Comprehensive SEO strategies to improve your search rankings.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Keyword Research</li>
+                        <li><i class="fas fa-check"></i> On-Page Optimization</li>
+                        <li><i class="fas fa-check"></i> Link Building</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Local SEO Services -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Local SEO Services</h3>
+                    <p>Boost your local visibility and attract nearby customers.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Google My Business</li>
+                        <li><i class="fas fa-check"></i> Local Citations</li>
+                        <li><i class="fas fa-check"></i> Location Targeting</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 6. Google Ads Management -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Ads Campaign Management</h3>
+                    <p>Expert management of your Google Ads campaigns.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Campaign Strategy</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                        <li><i class="fas fa-check"></i> Budget Management</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 7. Social Media Marketing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Strategic social media management and engagement.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Content Strategy</li>
+                        <li><i class="fas fa-check"></i> Community Management</li>
+                        <li><i class="fas fa-check"></i> Engagement Growth</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 8. Facebook & Instagram Ads -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h3>Facebook & Instagram Ads</h3>
+                    <p>Targeted advertising on major social platforms.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Audience Targeting</li>
+                        <li><i class="fas fa-check"></i> Creative Ad Design</li>
+                        <li><i class="fas fa-check"></i> Campaign Optimization</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 9. LinkedIn Marketing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <h3>LinkedIn Marketing</h3>
+                    <p>B2B marketing and lead generation on LinkedIn.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Profile Optimization</li>
+                        <li><i class="fas fa-check"></i> Content Marketing</li>
+                        <li><i class="fas fa-check"></i> Lead Generation</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 10. YouTube Marketing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>YouTube Video Marketing</h3>
+                    <p>Video content strategy and optimization.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Channel Optimization</li>
+                        <li><i class="fas fa-check"></i> Video SEO</li>
+                        <li><i class="fas fa-check"></i> Content Strategy</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Continue with remaining services... -->
+
+                <!-- 23. Native Advertising -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Native Advertising</h3>
+                    <p>Seamless sponsored content integration.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Content Creation</li>
+                        <li><i class="fas fa-check"></i> Platform Selection</li>
+                        <li><i class="fas fa-check"></i> Performance Tracking</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Computing & DevOps Section -->
+    <section class="services-section cloud-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cloud Computing & DevOps</h2>
+                <p class="section-subtitle">Modern cloud solutions and DevOps practices to accelerate your digital transformation</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Cloud Migration -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Cloud Migration Services</h3>
+                    <p>Seamless migration of your infrastructure to the cloud.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Migration Strategy</li>
+                        <li><i class="fas fa-check"></i> Zero Downtime</li>
+                        <li><i class="fas fa-check"></i> Data Security</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. DevOps Consulting -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>DevOps Implementation</h3>
+                    <p>End-to-end DevOps transformation and automation.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Process Automation</li>
+                        <li><i class="fas fa-check"></i> Tool Integration</li>
+                        <li><i class="fas fa-check"></i> Team Training</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Cloud Security -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cloud Security Solutions</h3>
+                    <p>Comprehensive cloud security and compliance services.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Security Assessment</li>
+                        <li><i class="fas fa-check"></i> Compliance Management</li>
+                        <li><i class="fas fa-check"></i> Threat Protection</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. Cloud Platforms -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>Multi-Cloud Services</h3>
+                    <p>Expert services for AWS, Azure, and Google Cloud.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Platform Migration</li>
+                        <li><i class="fas fa-check"></i> Cloud Architecture</li>
+                        <li><i class="fas fa-check"></i> Cost Optimization</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Add remaining services... -->
+
+                <!-- 10. Infrastructure as Code -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Infrastructure as Code</h3>
+                    <p>Automated infrastructure deployment and management.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Terraform & Ansible</li>
+                        <li><i class="fas fa-check"></i> Version Control</li>
+                        <li><i class="fas fa-check"></i> Automated Testing</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-commerce Solutions Section -->
+    <section class="services-section ecommerce-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">E-commerce Solutions</h2>
+                <p class="section-subtitle">Comprehensive e-commerce solutions to help you build and grow your online business</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. E-commerce Store Setup -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>E-commerce Store Setup</h3>
+                    <p>Complete e-commerce store development and setup services.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Store Design</li>
+                        <li><i class="fas fa-check"></i> Product Setup</li>
+                        <li><i class="fas fa-check"></i> Payment Integration</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Product Recommendation Engine -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Product Recommendations</h3>
+                    <p>Smart product suggestions to boost sales and engagement.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Personalized Suggestions</li>
+                        <li><i class="fas fa-check"></i> Behavior Analysis</li>
+                        <li><i class="fas fa-check"></i> Cross-selling Tools</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Multi-Vendor Marketplace -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Multi-Vendor Marketplace</h3>
+                    <p>Build your own marketplace platform with multiple sellers.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Vendor Management</li>
+                        <li><i class="fas fa-check"></i> Commission System</li>
+                        <li><i class="fas fa-check"></i> Seller Dashboard</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Add remaining services... -->
+
+                <!-- 10. Dropshipping Website -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Dropshipping Website</h3>
+                    <p>Complete dropshipping website setup and automation.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Supplier Integration</li>
+                        <li><i class="fas fa-check"></i> Order Automation</li>
+                        <li><i class="fas fa-check"></i> Inventory Sync</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IT Security & Compliance Section -->
+    <section class="services-section security-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">IT Security & Compliance</h2>
+                <p class="section-subtitle">Enterprise-grade security solutions and compliance services to protect your business</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Network Security -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Network Security</h3>
+                    <p>Comprehensive network security and firewall management solutions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Firewall Configuration</li>
+                        <li><i class="fas fa-check"></i> Intrusion Detection</li>
+                        <li><i class="fas fa-check"></i> 24/7 Monitoring</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Penetration Testing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Penetration Testing</h3>
+                    <p>Thorough security testing and vulnerability assessment.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Security Assessment</li>
+                        <li><i class="fas fa-check"></i> Risk Analysis</li>
+                        <li><i class="fas fa-check"></i> Remediation Planning</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. AI Threat Detection -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Threat Detection</h3>
+                    <p>Advanced AI-powered threat detection and response system.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Real-time Monitoring</li>
+                        <li><i class="fas fa-check"></i> Automated Response</li>
+                        <li><i class="fas fa-check"></i> Threat Intelligence</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. Code Review & Audits -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Security Code Review</h3>
+                    <p>Comprehensive code review and security compliance audits.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Static Analysis</li>
+                        <li><i class="fas fa-check"></i> Security Testing</li>
+                        <li><i class="fas fa-check"></i> Best Practices</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 5. Compliance Services -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Compliance Services</h3>
+                    <p>GDPR, HIPAA, and data privacy compliance solutions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Compliance Assessment</li>
+                        <li><i class="fas fa-check"></i> Policy Development</li>
+                        <li><i class="fas fa-check"></i> Regular Audits</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+                <!-- ... existing sections ... -->
+
+    <!-- Call-to-Action Footer -->
+    <footer class="cta-footer">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-main">
+                    <h2>Let's Build the Future Together!</h2>
+                    <p>Whether you're looking for cutting-edge AI solutions or expert digital services, Amerkrishna Technology is here to help.</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:contact@amerkrishna.com">contact@amerkrishna.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.amerkrishna.com">www.amerkrishna.com</a>
+                    </div>
+                </div>
+
+                <div class="trust-statement">
+                    <p>With a commitment to innovation and excellence, Amerkrishna Technology delivers powerful, scalable, and future-ready solutions tailored to your business needs. Join us on the path to success!</p>
+                </div>
+
+                <div class="consultation-offer">
+                    <h3>Need help finding the right service?</h3>
+                    <p>Our experts are ready to assist you! Book a free consultation today and let's bring your vision to life.</p>
+                    <a href="#book-consultation" class="cta-button">
+                        <i class="fas fa-calendar-alt"></i>
+                        Schedule a Free Consultation
+                    </a>
+                </div>
+            </div>
+        </body>
+            <!-- Consultation Modal -->
+    <div id="consultation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Schedule a Free Consultation</h2>
+            <form id="consultation-form" onsubmit="return submitConsultation(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date *</label>
+                    <input type="date" id="date" name="date" required min="">
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time *</label>
+                    <select id="time" name="time" required>
+                        <option value="">Select a time slot</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Interest *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="web">Web Development</option>
+                        <option value="mobile">Mobile App Development</option>
+                        <option value="ai">AI Solutions</option>
+                        <option value="cloud">Cloud Services</option>
+                        <option value="digital">Digital Marketing</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Schedule Consultation</button>
+            </form>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/form-handler.js"></script>
+</body>
+</html>
