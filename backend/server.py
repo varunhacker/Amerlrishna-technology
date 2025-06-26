@@ -379,6 +379,7 @@ async def search_news(
             pass  # Index might already exist
         
         search_results = await db.news.find(db_query).sort("published_at", -1).limit(limit).to_list(limit)
+        search_results = [serialize_doc(doc) for doc in search_results]
         
         # If no results from database, search in cache
         if not search_results:
