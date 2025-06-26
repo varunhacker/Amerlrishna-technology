@@ -116,6 +116,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Created FastAPI server with all required endpoints: /api/news/global, /api/news/india, /api/news/state/{state_name}, /api/news/search, /api/states. Basic API structure is working."
+      - working: true
+        agent: "testing"
+        comment: "Verified all API endpoints are working correctly. The root endpoint returns proper documentation, and all required endpoints (/api/news/global, /api/news/india, /api/news/state/{state_name}, /api/news/search, /api/states) respond with the expected data structure. Error handling for invalid endpoints and parameters works correctly."
 
   - task: "Web Scraping Implementation"
     implemented: true
