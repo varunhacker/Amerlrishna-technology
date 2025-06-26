@@ -280,7 +280,8 @@ async def get_global_news(limit: int = Query(20, ge=1, le=100)):
         if datetime.utcnow() - news_cache["last_updated"] > timedelta(minutes=30):
             db_news = await db.news.find({"is_global": True}).sort("published_at", -1).limit(limit).to_list(limit)
             if db_news:
-                return {"news": db_news, "total": len(db_news), "source": "database"}
+                serialized_news = [serialize_doc(doc) for doc in db_news]
+                return {"news": serialized_news, "total": len(serialized_news), "source": "database"}
         
         # Return from cache
         cached_news = news_cache["global"][:limit]
@@ -298,7 +299,8 @@ async def get_india_news(limit: int = Query(20, ge=1, le=100)):
         if datetime.utcnow() - news_cache["last_updated"] > timedelta(minutes=30):
             db_news = await db.news.find({"is_global": False}).sort("published_at", -1).limit(limit).to_list(limit)
             if db_news:
-                return {"news": db_news, "total": len(db_news), "source": "database"}
+                serialized_news = [serialize_doc(doc) for doc in db_news]
+                return {"news": serialized_news, "total": len(serialized_news), "source": "database"}
         
         # Return from cache
         cached_news = news_cache["india"][:limit]
