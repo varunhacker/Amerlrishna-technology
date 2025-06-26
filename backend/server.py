@@ -246,25 +246,11 @@ async def update_news_cache():
         # Store in database
         if news_cache["global"]:
             await db.news.delete_many({"is_global": True})
-            # Convert NewsItems to dicts before storing
-            global_docs = []
-            for item in news_cache["global"]:
-                if isinstance(item, dict):
-                    global_docs.append(item)
-                else:
-                    global_docs.append(item.dict() if hasattr(item, 'dict') else dict(item))
-            await db.news.insert_many(global_docs)
+            await db.news.insert_many(news_cache["global"])
         
         if news_cache["india"]:
             await db.news.delete_many({"is_global": False})
-            # Convert NewsItems to dicts before storing
-            india_docs = []
-            for item in news_cache["india"]:
-                if isinstance(item, dict):
-                    india_docs.append(item)
-                else:
-                    india_docs.append(item.dict() if hasattr(item, 'dict') else dict(item))
-            await db.news.insert_many(india_docs)
+            await db.news.insert_many(news_cache["india"])
         
         news_cache["last_updated"] = datetime.utcnow()
         logger.info(f"News cache updated successfully. Global: {len(news_cache['global'])}, India: {len(news_cache['india'])}")
