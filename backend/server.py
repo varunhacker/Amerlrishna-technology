@@ -240,12 +240,12 @@ async def update_news_cache():
         # Scrape global news
         for source in NEWS_SOURCES["global"]:
             global_news = await scrape_news_from_source(source, is_global=True)
-            news_cache["global"].extend([item.dict() for item in global_news])
+            news_cache["global"].extend(global_news)
         
         # Scrape Indian news
         for source in NEWS_SOURCES["indian"]:
             indian_news = await scrape_news_from_source(source, is_global=False)
-            news_cache["india"].extend([item.dict() for item in indian_news])
+            news_cache["india"].extend(indian_news)
         
         # Store in database
         if news_cache["global"]:
