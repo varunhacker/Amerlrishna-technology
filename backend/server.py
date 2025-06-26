@@ -250,11 +250,21 @@ async def update_news_cache():
         # Store in database
         if news_cache["global"]:
             await db.news.delete_many({"is_global": True})
-            await db.news.insert_many(news_cache["global"])
+            # Clean items before storing (remove any _id fields)
+            clean_global = []
+            for item in news_cache["global"]:
+                clean_item = {k: v for k, v in item.items() if k != '_id'}
+                clean_global.append(clean_item)
+            await db.news.insert_many(clean_global)
         
         if news_cache["india"]:
             await db.news.delete_many({"is_global": False})
-            await db.news.insert_many(news_cache["india"])
+            # Clean items before storing (remove any _id fields)
+            clean_india = []
+            for item in news_cache["india"]:
+                clean_item = {k: v for k, v in item.items() if k != '_id'}
+                clean_india.append(clean_item)
+            await db.news.insert_many(clean_india)
         
         news_cache["last_updated"] = datetime.utcnow()
         logger.info(f"News cache updated successfully. Global: {len(news_cache['global'])}, India: {len(news_cache['india'])}")
