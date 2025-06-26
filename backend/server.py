@@ -272,6 +272,17 @@ async def root():
         ]
     }
 
+@api_router.get("/debug/cache")
+async def debug_cache():
+    """Debug endpoint to check cache content"""
+    return {
+        "global_count": len(news_cache["global"]),
+        "india_count": len(news_cache["india"]),
+        "last_updated": news_cache["last_updated"].isoformat(),
+        "sample_global": news_cache["global"][:1] if news_cache["global"] else [],
+        "sample_india": news_cache["india"][:1] if news_cache["india"] else []
+    }
+
 @api_router.get("/news/global")
 async def get_global_news(limit: int = Query(20, ge=1, le=100)):
     """Get latest global news"""
