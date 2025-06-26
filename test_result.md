@@ -168,11 +168,14 @@ backend:
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Implemented in-memory caching and APScheduler for 30-minute news updates. Cache is working and scheduler is active."
+      - working: true
+        agent: "testing"
+        comment: "Verified caching and scheduling functionality. The API successfully caches news articles and returns them from cache. The manual refresh endpoint works correctly, updating the cache with the latest news. The scheduler is configured to update the cache every 30 minutes."
 
   - task: "Search Functionality"
     implemented: true
