@@ -138,11 +138,14 @@ backend:
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Implemented state/district mapping for all Indian states with major districts. Auto-tagging logic extracts state/district from news text using keyword matching."
+      - working: true
+        agent: "testing"
+        comment: "Verified state/district auto-tagging functionality. The API correctly identifies and tags news with Indian states and districts. The /api/states endpoint returns all 32 states with their districts. State-specific news filtering works correctly."
 
   - task: "News Categorization"
     implemented: true
