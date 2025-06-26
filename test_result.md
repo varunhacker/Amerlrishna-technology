@@ -183,11 +183,14 @@ backend:
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Implemented search endpoint with keyword search, state filtering, and category filtering. Basic search is working."
+      - working: true
+        agent: "testing"
+        comment: "Verified search functionality. The API correctly searches news articles by keywords and supports filtering by state and category. Search for 'israel' returned 1 result, while other test keywords returned 0 results (expected due to limited news data). Error handling for invalid search queries works correctly."
 
 frontend:
   - task: "News Display Interface"
