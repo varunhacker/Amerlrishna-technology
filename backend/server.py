@@ -114,6 +114,19 @@ news_cache = {
 # Initialize scheduler
 scheduler = BackgroundScheduler()
 
+def serialize_doc(doc):
+    """Convert MongoDB document to JSON serializable format"""
+    if isinstance(doc, dict):
+        return {key: serialize_doc(value) for key, value in doc.items()}
+    elif isinstance(doc, list):
+        return [serialize_doc(item) for item in doc]
+    elif isinstance(doc, ObjectId):
+        return str(doc)
+    elif isinstance(doc, datetime):
+        return doc.isoformat()
+    else:
+        return doc
+
 def extract_state_district(text: str) -> tuple[Optional[str], Optional[str]]:
     """Extract state and district from news text using keyword matching"""
     text_lower = text.lower()
