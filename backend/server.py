@@ -276,18 +276,17 @@ async def root():
         ]
     }
 
-@api_router.get("/debug/cache")
-async def debug_cache():
-    """Debug endpoint to check cache content"""
+@api_router.get("/debug/sample")
+async def debug_sample():
+    """Debug endpoint to check one sample item"""
     try:
-        return {
-            "global_count": len(news_cache["global"]),
-            "india_count": len(news_cache["india"]),
-            "last_updated": news_cache["last_updated"].isoformat() if isinstance(news_cache["last_updated"], datetime) else str(news_cache["last_updated"]),
-            "status": "ok"
-        }
+        if news_cache["global"]:
+            sample = news_cache["global"][0]
+            return {"sample": str(sample), "type": str(type(sample))}
+        else:
+            return {"message": "No global news in cache"}
     except Exception as e:
-        return {"error": str(e), "status": "error"}
+        return {"error": str(e)}
 
 @api_router.get("/news/global")
 async def get_global_news(limit: int = Query(20, ge=1, le=100)):
