@@ -217,7 +217,11 @@ async def scrape_news_from_source(source: dict, is_global: bool = False) -> List
                             url=url,
                             is_global=is_global
                         )
-                        news_items.append(news_item)
+                        # Convert to dict and serialize datetime objects
+                        item_dict = news_item.dict()
+                        item_dict['published_at'] = item_dict['published_at'].isoformat()
+                        item_dict['scraped_at'] = item_dict['scraped_at'].isoformat()
+                        news_items.append(item_dict)
     
     except Exception as e:
         logger.error(f"Error scraping from {source['name']}: {str(e)}")
