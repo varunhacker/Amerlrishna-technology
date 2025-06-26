@@ -153,11 +153,14 @@ backend:
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Implemented automatic news categorization into politics, economy, education, science, environment, sports, health, defense, general based on keyword matching."
+      - working: true
+        agent: "testing"
+        comment: "Verified news categorization functionality. The API correctly categorizes news articles into politics, economy, education, science, environment, sports, health, defense, and general categories based on keyword matching. Category filtering in search works correctly."
 
   - task: "Caching and Scheduling"
     implemented: true
