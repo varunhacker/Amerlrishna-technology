@@ -328,20 +328,27 @@ async def get_global_news(limit: int = Query(20, ge=1, le=100)):
 async def get_india_news(limit: int = Query(20, ge=1, le=100)):
     """Get latest India news"""
     try:
-        # If cache is old, try to get from database
-        if datetime.utcnow() - news_cache["last_updated"] > timedelta(minutes=30):
-            db_news = await db.news.find({"is_global": False}).sort("published_at", -1).limit(limit).to_list(limit)
-            if db_news:
-                serialized_news = [serialize_doc(doc) for doc in db_news]
-                return {"news": serialized_news, "total": len(serialized_news), "source": "database"}
-        
-        # Return from cache
-        cached_news = news_cache["india"][:limit]
-        return {"news": cached_news, "total": len(cached_news), "source": "cache"}
+        # Return from cache - clean any ObjectId fields
+        cached_news = []
+        for item in news_cache["india"][:limit]:
+            clean_item = {k: v for k, v in item.items() if k != '_id'}
+            cached_news.append(clean_item)
+            
+        return {
+            "news": cached_news, 
+            "total": len(cached_news), 
+            "source": "cache",
+            "status": "success"
+        }
     
     except Exception as e:
         logger.error(f"Error fetching India news: {str(e)}")
-        raise HTTPException(status_code=500, detail="Error fetching India news")
+        return {
+            "news": [], 
+            "total": 0, 
+            "error": str(e),
+            "status": "error"
+        }
 
 @api_router.get("/news/state/{state_name}")
 async def get_state_news(state_name: str, limit: int = Query(20, ge=1, le=100)):
