@@ -328,10 +328,11 @@ async def get_state_news(state_name: str, limit: int = Query(20, ge=1, le=100)):
         
         if not state_news:
             # Search in database
-            state_news = await db.news.find({
+            state_news_db = await db.news.find({
                 "is_global": False,
                 "state": state_name
             }).sort("published_at", -1).limit(limit).to_list(limit)
+            state_news = [serialize_doc(doc) for doc in state_news_db]
         
         return {
             "news": state_news, 
