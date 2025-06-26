@@ -293,20 +293,23 @@ async def debug_cache():
 async def get_global_news(limit: int = Query(20, ge=1, le=100)):
     """Get latest global news"""
     try:
-        # If cache is old, try to get from database
-        if datetime.utcnow() - news_cache["last_updated"] > timedelta(minutes=30):
-            db_news = await db.news.find({"is_global": True}).sort("published_at", -1).limit(limit).to_list(limit)
-            if db_news:
-                serialized_news = [serialize_doc(doc) for doc in db_news]
-                return {"news": serialized_news, "total": len(serialized_news), "source": "database"}
-        
-        # Return from cache
+        # Return from cache - simplified
         cached_news = news_cache["global"][:limit]
-        return {"news": cached_news, "total": len(cached_news), "source": "cache"}
+        return {
+            "news": cached_news, 
+            "total": len(cached_news), 
+            "source": "cache",
+            "status": "success"
+        }
     
     except Exception as e:
         logger.error(f"Error fetching global news: {str(e)}")
-        raise HTTPException(status_code=500, detail="Error fetching global news")
+        return {
+            "news": [], 
+            "total": 0, 
+            "error": str(e),
+            "status": "error"
+        }
 
 @api_router.get("/news/india")
 async def get_india_news(limit: int = Query(20, ge=1, le=100)):
