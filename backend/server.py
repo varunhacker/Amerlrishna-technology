@@ -302,8 +302,12 @@ async def debug_sample():
 async def get_global_news(limit: int = Query(20, ge=1, le=100)):
     """Get latest global news"""
     try:
-        # Return from cache - simplified
-        cached_news = news_cache["global"][:limit]
+        # Return from cache - clean any ObjectId fields
+        cached_news = []
+        for item in news_cache["global"][:limit]:
+            clean_item = {k: v for k, v in item.items() if k != '_id'}
+            cached_news.append(clean_item)
+            
         return {
             "news": cached_news, 
             "total": len(cached_news), 
